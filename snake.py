@@ -47,3 +47,11 @@ class Snake:
     def extend(self):
         # add new segment to the snake
         self.add_segment(self.segments[-1].position())
+
+    def reset(self):
+        for segment in self.segments:
+            segment.goto(1000, 1000)
+        self.segments = []
+        for n in range(3):
+            self.add_segment((INITIAL_COR.x - 20 * n, INITIAL_COR.y))
+        self.head = self.segments[0]
